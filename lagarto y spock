@@ -1,0 +1,311 @@
+// See https://aka.ms/new-console-template for more information
+using System.Xml.Linq;
+
+Console.WriteLine("Hello, World!");
+Console.WriteLine("Ingrese su nombre para jugar piedra, papel, tijera, lagarto o spock");
+string n1 = Console.ReadLine();
+
+
+int selecciondelIA = 0;
+int selecciondeljugador = 0;
+
+// se inicia con puntuacion 0
+int puntajedeljugador = 0;
+int puntajedelIA = 0;
+int veces = 0;
+
+
+
+Random IA = new Random();
+while (true)
+{
+    if (puntajedeljugador >= 3)
+    {
+        break;
+    }
+
+    if (puntajedelIA >= 3)
+    {
+        break;
+    }
+
+    selecciondelIA = IA.Next(1, 4);
+
+    Console.WriteLine($"El marcador actual es de {puntajedelIA} puntos para la IA y {puntajedeljugador} puntos para {n1}");
+    Console.WriteLine("ingrese {1} para piedra, ingrese {2} para papel, ingrese {3} para tijera, ingrese {4} para lagarto e ingrese {5} para spock");
+    selecciondeljugador = Convert.ToInt32(Console.ReadLine());
+
+
+    if (selecciondeljugador == 1)
+    {
+        Console.WriteLine("usted escogio Piedra");
+        if (selecciondelIA == 1)
+        {
+            Console.WriteLine("la IA escogio piedra");
+            Console.WriteLine("ambos sacaron Piedra, vuelve a jugar.");
+        }
+        else
+        {
+            if (selecciondelIA == 2)
+            {
+                Console.WriteLine("la IA escogio papel");
+                Console.WriteLine("papel atrapa a piedra, la IA gana un punto");
+                veces++;
+                puntajedelIA++;
+            }
+            else
+            {
+                if (selecciondelIA == 3)
+                {
+                    Console.WriteLine("la IA escogio tijeras");
+                    Console.WriteLine($"piedra aplasta tijeras, {n1} usted gana un punto");
+                    veces++;
+                    puntajedeljugador++;
+                }
+                else
+                {
+                    if (selecciondelIA == 4)
+                    {
+                        Console.WriteLine("la IA escogio lagarto");
+                        Console.WriteLine($"piedra aplasta a lagarto,{n1} usted gana un punto");
+                        veces++;
+                        puntajedeljugador++;
+                    }
+                    else
+                    {
+                        if (selecciondelIA == 5)
+                        {
+                            Console.WriteLine("la IA escogio spock");
+                            Console.WriteLine("spock evaporiza piedra, la IA gana un punto");
+                            veces++;
+                            puntajedelIA++;
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    if (selecciondeljugador == 2)
+    {
+        Console.WriteLine("usted eligio Papel");
+        if (selecciondelIA == 1)
+        {
+            Console.WriteLine("la IA escogio piedra");
+            Console.WriteLine($"papel atrapa a piedra, {n1} usted gana un punto");
+            veces++;
+            puntajedeljugador++;
+        }
+        else
+        {
+            if (selecciondelIA == 2)
+            {
+                Console.WriteLine("la IA escogio papel");
+                Console.WriteLine("ambos sacaron papel, vuelva a jugar");
+            }
+            else
+            {
+                if (selecciondelIA == 3)
+                {
+                    Console.WriteLine("la IA escogio tijeras");
+                    Console.WriteLine("tijeras corta papel, la IA gana un punto");
+                    veces++;
+                    puntajedelIA++;
+                }
+                else
+                {
+                    if (selecciondelIA == 4)
+                    {
+                        Console.WriteLine("la IA escogio lagarto");
+                        Console.WriteLine("lagarto se come a papel, la IA gana un punto");
+                        veces++;
+                        puntajedelIA++;
+
+                    }
+                    else
+                    {
+                        if (selecciondelIA == 5)
+                        {
+                            Console.WriteLine("la IA escogio spock");
+                            Console.WriteLine($"papel desautoriza a spock,{n1} usted gana un punto");
+                            veces++;
+                            puntajedeljugador++;
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+
+    if (selecciondeljugador == 3)
+    {
+        Console.WriteLine("usted eligio tijeras");
+        if (selecciondelIA == 1)
+        {
+            Console.WriteLine("la IA escogio piedra");
+            Console.WriteLine("piedra aplasta tijeras,la IA gana un punto");
+            veces++;
+            puntajedelIA++;
+        }
+        else
+        {
+            if (selecciondelIA == 2)
+            {
+                Console.WriteLine("la IA escogio papel");
+                Console.WriteLine($"tijeras corta papel,{n1} usted gana un punto");
+                veces++;
+                puntajedeljugador++;
+            }
+            else
+            {
+                if (selecciondelIA == 3)
+                {
+                    Console.WriteLine("la IA escogio tijeras");
+                    Console.WriteLine("ambos sacaron tijeras, vuelve a jugar");
+                }
+                else
+                {
+                    if (selecciondelIA == 4)
+                    {
+                        Console.WriteLine("la IA escogio lagarto");
+                        Console.WriteLine($"tijera mata a lagarto,{n1} usted gana un punto");
+                        veces++;
+                        puntajedeljugador++;
+                    }
+                    else
+                    {
+                        if (selecciondelIA == 5)
+                        {
+                            Console.WriteLine("la IA escogio spock");
+                            Console.WriteLine("spock rompe tijeras, la IA gana un punto");
+                            veces++;
+                            puntajedelIA++;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    if (selecciondeljugador == 4)
+    {
+        Console.Write("usted eligio lagarto");
+        if (selecciondelIA == 1)
+        {
+            Console.WriteLine("la IA escogio piedra");
+            Console.WriteLine("piedra aplasta lagarto, la IA gana un punto");
+            veces++;
+            puntajedelIA++;
+        }
+        else
+        {
+            if (selecciondelIA == 2)
+            {
+                Console.WriteLine("la IA escogio papel");
+                Console.WriteLine($"lagarto devora papel, {n1} usted gana un punto");
+                veces++;
+                puntajedeljugador++;
+            }
+            else
+            {
+                if (selecciondelIA == 3)
+                {
+                    Console.WriteLine("la IA escogio tijeras");
+                    Console.WriteLine("Tijera mata a Lagarto, la IA gana un punto");
+                    veces++;
+                    puntajedelIA++;
+                }
+                else
+                {
+                    if (selecciondelIA == 4)
+                    {
+                        Console.WriteLine("la IA escogio lagarto");
+                        Console.WriteLine("ambos sacaron lagarto, vuelva a jugar");
+
+                    }
+                    else
+                    {
+                        if (selecciondelIA == 5)
+                        {
+                            Console.WriteLine("la IA escogio spock");
+                            Console.WriteLine($"lagarto envenena a Spock,{n1} usted gana un punto");
+                            veces++;
+                            puntajedeljugador++;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    if (selecciondeljugador == 5)
+    {
+        Console.Write("usted eligio spock");
+        if (selecciondelIA == 1)
+        {
+            Console.WriteLine("la IA escogio piedra");
+            Console.WriteLine($"spock evaporiza piedra,{n1} usted gana un punto");
+            veces++;
+            puntajedeljugador++;
+        }
+        else
+        {
+            if (selecciondelIA == 2)
+            {
+                Console.WriteLine("la IA escogio papel");
+                Console.WriteLine("Papel desautoriza a Spock, la IA gana un punto");
+                veces++;
+                puntajedelIA++;
+            }
+            else
+            {
+                if (selecciondelIA == 3)
+                {
+                    Console.WriteLine("la IA escogio tijeras");
+                    Console.WriteLine($"spock aplasta tijera, {n1} usted gana un punto");
+                    veces++;
+                    puntajedeljugador++;
+                }
+                else
+                {
+                    if (selecciondelIA == 4)
+                    {
+                        Console.WriteLine("la IA escogio lagarto");
+                        Console.WriteLine("Lagarto envenena a Spock, la IA gana un punto");
+                        veces++;
+                        puntajedelIA++;
+                    }
+                    else
+                    {
+                        if (selecciondelIA == 5)
+                        {
+                            Console.WriteLine("la IA escogio spock");
+                            Console.WriteLine("ambos sacaron spock, vuelva a jugar");
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+    Console.WriteLine($"la IA tuvo un total de {puntajedelIA} puntos y el juggador {n1} tuvo un total de {puntajedeljugador} puntos.");
+
+    if (puntajedelIA < puntajedeljugador)
+    {
+        Console.WriteLine($"{n1} usted le ha ganado a la IA, felicitaciones.");
+    }
+    else
+    {
+        Console.WriteLine($"{n1} usted perdio contra la IA,juegue de nuevo.");
+    }
+
+    Console.WriteLine("FIN DEL JUEGO, ESPERO LE HAYA GUSTADO");
+
